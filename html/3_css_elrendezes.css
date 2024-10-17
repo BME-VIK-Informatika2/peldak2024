@@ -1,0 +1,71 @@
+/* Közös tulajdonságok */
+.container {
+    width: 505px;
+    height: 510px;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+header, main, aside, footer {
+    padding: 5px;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #eeb85c;
+    height: 50px;
+}
+
+main {
+    background-color: #b9d9fb;
+}
+
+aside {
+    background-color: #d2d0fb;
+    width: 100px;
+}
+
+footer {
+    background-color: #ee8e92;
+    height: 50px;
+}
+
+/* Float */
+.container-float *{
+    margin-bottom: 5px;
+}
+
+.container-float main {
+    height: 400px;
+    width: 400px;
+    float: left;
+}
+
+.container-float aside {
+    height: 400px;
+    float: right;
+}
+
+.container-float footer {
+    margin-bottom: 0;
+    clear: both;
+}
+
+/* Flex */
+.container-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.container-flex .row{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    flex-grow: 1;
+}
+
+.container-flex main{
+    flex-grow: 1;
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTMl alapok</title>
+</head>
+<body>
+
+<h1>HTML alapok</h1>
+<hr>
+
+<h2>Blokk és inline elem</h2>
+<p style="border: 1px solid black;padding: 5px">
+    Blokk szintű elemen belül van egy <span style="border: 1px solid black">Inline elem</span>
+</p>
+<hr>
+
+<h2>Címsorok</h2>
+<h1>Cím 1</h1>
+<h2>Cím 2</h2>
+<h3>Cím 3</h3>
+<h4>Cím 4</h4>
+<h5>Cím 5</h5>
+<h6>Cím 6</h6>
+<hr>
+
+<h2>Bekezdés</h2>
+<p>
+    <strong>Lorem ipsum</strong> dolor sit amet, <em>consectetur adipiscing elit.</em> Donec scelerisque ultrices orci,
+    vitae fringilla turpis
+    facilisis in. Integer ornare ipsum dui, eu <u>tincidunt nulla suscipit nec</u>. Praesent ullamcorper congue tortor,
+    et
+    volutpat augue luctus eget. Aliquam vel quam a augue accumsan dictum et ac risus. Curabitur libero urna, eleifend at
+    auctor ac, <b>molestie in nunc.</b> Etiam ornare <i>orci nec urna tempus</i>, nec iaculis lorem aliquet. Sed ut diam
+    vitae eros
+    aliquam congue eget vel elit. Vestibulum consequat a tellus at ultrices.
+</p>
+<p>
+    Fusce a enim in quam accumsan commodo et in nulla. Curabitur quis erat posuere tortor condimentum imperdiet non ut
+    velit. Mauris malesuada elementum dolor ac mollis. In fringilla ac ex vitae congue. Fusce feugiat magna volutpat,
+    vestibulum eros ac, pretium diam. Donec euismod at elit vel commodo. Mauris ultrices orci mi, quis congue massa
+    sollicitudin nec. Praesent eu justo ante. Cras porta tortor vel nisl maximus tempor. Aenean commodo rutrum ipsum.
+    Nulla facilisi. Proin in nisi vitae ex iaculis euismod nec in turpis. Aenean pulvinar vitae erat eu congue. Vivamus
+    cursus, mauris quis viverra sollicitudin, metus odio mattis massa, nec mattis turpis nibh et orci.
+</p>
+<hr>
+
+<h2>Kép</h2>
+<img src="https://via.placeholder.com/150x100"
+     alt="Kép leírása" width="150" height="100">
+<hr>
+
+<h2>Lista</h2>
+<ul>
+    <li>Első</li>
+    <li>Második</li>
+    <li>Harmadik</li>
+</ul>
+<ol>
+    <li>Első</li>
+    <li>Második</li>
+    <li>Harmadik</li>
+</ol>
+<hr>
+
+<h2>Táblázat</h2>
+<table border="1">
+    <tr>
+        <th>1. fejléc</th>
+        <th>2. fejléc</th>
+    </tr>
+    <tr>
+        <td>1. elem</td>
+        <td>2. elem</td>
+    </tr>
+</table>
+<hr>
+
+<h2 id="hivatkozasok">Hivatkozások</h2>
+<a href="https://example.com/login">
+    Oldalak közötti navigáció, abszolút URL (https://example.com/login)
+</a>
+<br>
+<br>
+
+<a href="/login">
+    Oldalak közötti navigáció, relatív URL (/login)
+</a>
+<br>
+<br>
+
+<a href="#hivatkozasok">
+    Ugrás oldalon belül a "Hivatkozások" elemhez (#hivatkozasok)
+</a>
+<br>
+<br>
+
+<a href="https://example.com/login" target="_blank">
+    Link megnyitás új ablakban (https://example.com/login)
+</a>
+<br>
+<br>
+
+<a href="mailto:user@example.com">
+    Levél küldése (mailto:user@example.com)
+</a>
+<hr>
+
+<h2>Űrlapok</h2>
+<form method="get">
+    <fieldset>
+        <legend>Űrlap címkék</legend>
+
+        <label for="example">Címke for attribútummal</label>
+        <input type="text" id="example">
+        <br><br>
+
+        <label>Címke beágyazással
+            <input type="text">
+        </label>
+    </fieldset>
+</form>
+<br>
+
+<form action="">
+    <fieldset>
+        <legend>Űrlap mezők</legend>
+
+        Szöveg: <input type="text" value="Szöveg"><br><br>
+        Jelszó: <input type="password" value="Jelszó"><br><br>
+        Szám: <input type="number" value="15" min="5" max="20"><br><br>
+        Rádió gomb: <input type="radio" checked><br><br>
+        Jelölőnégyzet: <input type="checkbox" checked><br><br>
+        Fájl: <input type="file"><br><br>
+        Dátum: <input type="date" value="2024-08-08"><br><br>
+        Szín: <input type="color" value="#FF0000"><br><br>
+        Gomb: <input type="submit" value="Küldés"><br><br>
+        Többsoros szöveg: <textarea rows="3">Szöveg</textarea><br><br>
+        Legördülő lista:
+        <select>
+            <option value="1">1. elem</option>
+            <option value="2" selected>2. elem</option>
+            <option value="3">3. elem</option>
+        </select><br><br>
+
+    </fieldset>
+</form>
+<br>
+
+<form action="">
+    <fieldset>
+        <legend>Űrlap validáció</legend>
+
+        Kötelező mező: <input type="text" required><br><br>
+        Reguláris kifejezés: <input type="text" pattern="[a-z]{2}"><br><br>
+        Minimum és maximum hossz: <input type="text" minlength="5" maxlength="10"><br><br>
+        Szám: <input type="number" min="5" max="20" step="1"><br><br>
+
+        <input type="submit">
+    </fieldset>
+</form>
+
+</body>
+</html>

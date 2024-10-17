@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS alapok</title>
+
+    <!-- Külső css hivatkozása   -->
+    <link rel="stylesheet" href="2_css_alapok.css">
+
+    <!-- Belső css -->
+    <style>
+        h3 {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<h1>CSS alapok</h1>
+<hr>
+
+<h2>CSS szabályok helye</h2>
+<h1>Piros</h1>
+<h2>Kék</h2>
+<h3>Zöld</h3>
+
+<!--Inline stílus-->
+<h4 style="color: yellow">Sárga</h4>
+<hr>
+
+<h2>Selectorok</h2>
+
+<article>
+    <h1 id="first-article-title">Cikk címe</h1>
+    <p class="article-content">Cikk tartalma</p>
+    <a href="..." target="_blank">További cikkek</a>
+</article>
+<br>
+
+<nav class="main">
+    <ul>
+        <li class="active">Főoldal</li>
+        <li>Termékek</li>
+        <li>Kapcsolat</li>
+    </ul>
+</nav>
+<hr>
+
+<h2>Tulajdonságok</h2>
+<div class="negyerteku b1">
+    1px
+</div>
+<div class="negyerteku b2">
+    1px 2px
+</div>
+<div class="negyerteku b3">
+    1px 2px 4px
+</div>
+<div class="negyerteku b4">
+    1px 2px 4px 8px
+</div>
+<hr>
+
+<h2>Doboz modell</h2>
+
+<div class="box box-content">
+    content-box
+</div>
+
+<div class="box box-border">
+    border-box
+</div>
+
+</body>
+</html>

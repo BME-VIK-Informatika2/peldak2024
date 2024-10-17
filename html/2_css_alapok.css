@@ -1,0 +1,130 @@
+/* Külső css fájl */
+h1 {
+    color: red;
+}
+
+h2 {
+    color: blue;
+}
+
+/* Egyszerű selectorok */
+article {
+    background-color: grey;
+}
+
+#first-article-title {
+    font-size: large;
+}
+
+.article-content {
+    font-family: sans-serif;
+}
+
+[target="_blank"] {
+    color: red;
+}
+
+/* Összetett selectorok */
+nav > ul {
+    list-style-type: none;
+}
+
+nav .active {
+    font-weight: bold;
+}
+
+nav.main {
+    border: 1px solid black;
+}
+
+nav, ul {
+    background-color: lightblue;
+}
+
+/* Pseudo osztályok */
+a:visited {
+    color: green;
+}
+
+input:disabled {
+    background-color: lightgrey;
+}
+
+:first-child {
+    font-weight: bold;
+}
+
+#id:hover {
+    text-decoration: underline;
+}
+
+/* Fontos szabályok */
+a:hover {
+    color: darkred !important;
+}
+
+/* Vendor prefixek */
+.transition {
+    -webkit-transition: all 4s ease;
+    -moz-transition: all 4s ease;
+    -ms-transition: all 4s ease;
+    -o-transition: all 4s ease;
+    transition: all 4s ease;
+}
+
+/* Egyértékű tulajdonságok */
+.egy-erteku {
+    margin-top: 5px;
+    border-color: black;
+    background-position: center;
+}
+
+/* Több értékű tulajdonságok */
+.tobb-erteku {
+    margin: 5px 4px 1px 3px;
+    border: 1px solid black;
+    background: url("image.png") center no-repeat;
+}
+
+/* 4 értékű tulajdonságok */
+.negyerteku {
+    border-style: solid;
+    border-color: black;
+    margin-bottom: 10px;
+    width: 150px;
+    height: 50px;
+}
+
+.b1 {
+    border-width: 1px;
+}
+
+.b2 {
+    border-width: 1px 2px;
+}
+
+.b3 {
+    border-width: 1px 2px 4px;
+}
+
+.b4 {
+    border-width: 1px 2px 4px 8px;
+}
+
+/* Doboz modell */
+.box {
+    height: 100px;
+    width: 250px;
+    border: 1px solid;
+    padding: 5px 10px;
+    margin: 10px;
+}
+
+.box-content {
+    box-sizing: content-box;
+}
+
+.box-border {
+    box-sizing: border-box;
+}
+

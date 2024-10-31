@@ -1,0 +1,13 @@
+{
+    "name": "info2/guzzle",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Knyihár Gábor",
+            "email": "gabor.knyihar@aut.bme.hu"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.9"
+    }
+}

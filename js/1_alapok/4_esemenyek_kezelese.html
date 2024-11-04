@@ -51,7 +51,7 @@
             <div class="box-1" title="Box 2">
                 <div class="box-1" title="Box 3">
                     <div class="box-1" title="Box 4">
-                        Bottom - Up
+                        Top - down
                     </div>
                 </div>
             </div>
@@ -61,7 +61,7 @@
             <div class="box-2" title="Box 2">
                 <div class="box-2" title="Box 3">
                     <div class="box-2" title="Box 4">
-                        Top - Down
+                        Bottom - up
                     </div>
                 </div>
             </div>
@@ -117,13 +117,15 @@
             console.log(title);
         };
 
+        // Alapértelmezett viselkedés
         for (let box of document.getElementsByClassName('box-1')) {
+            box.addEventListener('click', () => eventHandler(box.title));
+        } // Box 4, Box 3, Box 2, Box 1
+
+        // Fordított sorrend
+        for (let box of document.getElementsByClassName('box-2')) {
             box.addEventListener('click', () => eventHandler(box.title), true);
         } // Box 1, Box 2, Box 3, Box 4
-
-        for (let box of document.getElementsByClassName('box-2')) {
-            box.addEventListener('click', () => eventHandler(box.title), false);
-        } // Box 4, Box 3, Box 2, Box 1
 
         // Eseménykezelő paraméterezése
         let coords = document.getElementById('coords');

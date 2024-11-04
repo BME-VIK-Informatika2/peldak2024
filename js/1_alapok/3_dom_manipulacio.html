@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Heading 1</h1>
+
+    <p id="par">Text</p>
+
+    <a href="#" class="link">Link</a>
+
+    <ul class="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <script>
+        // Elemek lekérdezése
+        console.log(document.getElementsByTagName('h1'));
+        // HTMLCollection(1) [h1]
+        console.log(document.getElementById('par'));
+        // <p id="par">Text</p>
+        console.log(document.getElementsByClassName('link'));
+        // HTMLCollection(1) [a.link]
+        console.log(document.querySelector('ul.list li'));
+        // <li>Item 1</li>
+        console.log(document.querySelectorAll('ul.list li'));
+        // NodeList(3) [li, li, li]
+
+        // Elemek módosítása
+        // Szöveges tartalom módosítása
+        let h1 = document.getElementsByTagName('h1')[0];
+        h1.innerText = 'New Heading 1';
+
+        // HTML tartalom módosítása
+        let par = document.getElementById('par');
+        par.innerHTML = '<strong>New Text</strong>';
+
+        // Attribútumok módosítása
+        let link = document.getElementsByClassName('link')[0];
+        link.removeAttribute('class');
+        link.setAttribute('href', 'https://www.google.com');
+        link.setAttribute('target', '_blank');
+
+        // Fontosabb attríbútumok
+        let item = document.querySelector('ul.list li');
+        item.id='item-1';
+        item.classList.add('new-class-1');
+        item.classList.remove('new-class-2');
+        item.classList.toggle('new-class-3');
+        item.style.color = 'red';
+        item.style.backgroundColor = 'blue';
+        item.style.marginTop = '10px';
+
+        // Elemek létrehozása
+        let newItem = document.createElement('li');
+        newItem.innerText = 'Item 4';
+        newItem.id = 'item-4';
+        newItem.classList.add('new-class-4');
+
+        // Elemek megjelenítése
+        let list = document.querySelector('ul.list');
+        list.appendChild(newItem);
+
+        // Elemek törlése
+        let item2 = document.querySelectorAll('ul.list li')[1];
+        list.removeChild(item2);
+
+        // Dom bejárása
+        function walkTheDOM(node, fun) {
+            // Aktuális node feldolgozása
+            fun(node)
+            // Első gyermek
+            node = node.firstChild;
+            while(node) {
+                // Rekurzív hívás a gyerekekre
+                walkTheDOM(node, fun);
+                // Ha nincs több gyerek, akkor a testvérre lépünk
+                node = node.nextSibling;
+            }
+        }
+
+        walkTheDOM(document.body, console.log);
+    </script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box-1, .box-2 {
+            max-width: 150px;
+            border: 1px solid black;
+            padding: 5px;
+            margin: 5px;
+            text-align: center;
+        }
+
+        #canvas
+        {
+            width: 250px;
+            height: 250px;
+            border: 1px solid black;
+            background-color: lightgray;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <button id="btn1"
+                onclick="alert('Gomb 1 megnyomása')">
+            Gomb 1
+        </button>
+
+        <button id="btn2"
+                onclick="((sender) => alert(sender + ' megnyomása'))('Gomb 2')">
+            Gomb 2
+        </button>
+
+        <button id="btn3"
+                onclick="btn3_click()">
+            Gomb 3
+        </button>
+    </p>
+
+    <p>
+        <h1 id="h1">Számláló: <span>1</span></h1>
+        <button id="btn4">Növelés</button>
+        <button id="btn5">Törlés</button>
+    </p>
+
+    <p>
+        <div class="box-1" title="Box 1">
+            <div class="box-1" title="Box 2">
+                <div class="box-1" title="Box 3">
+                    <div class="box-1" title="Box 4">
+                        Bottom - Up
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box-2" title="Box 1">
+            <div class="box-2" title="Box 2">
+                <div class="box-2" title="Box 3">
+                    <div class="box-2" title="Box 4">
+                        Top - Down
+                    </div>
+                </div>
+            </div>
+        </div>
+    </p>
+
+    <p>
+        <div id="canvas">
+            <span id="coords">X: 0, Y: 0</span>
+        </div>
+    </p>
+
+    <p>
+        <button id="btn6">Start</button>
+    </p>
+
+<script>
+    // Inline eseménykezelő
+    function btn3_click() {
+        alert('Gomb 3 megnyomása');
+    }
+
+    // Oldal betöltődésekor fut le
+    window.onload = function () {
+        // Eseménykezelő regisztrálása
+        let h1 = document.getElementById('h1');
+        h1.onmouseover = function () {
+            h1.style.color = 'red';
+        };
+        h1.onmouseleave = function () {
+            h1.style.color = 'black';
+        };
+
+        // Több eseménykezelő regisztrálása
+        let btn4 = document.getElementById('btn4');
+        function btn4_click() {
+            h1.lastChild.innerText++;
+        }
+
+        btn4.addEventListener('click', btn4_click);
+        btn4.addEventListener('click', () => {
+            console.log('Növelés');
+        });
+
+        // Eseménykezelő eltávolítása
+        let btn5 = document.getElementById('btn5');
+        btn5.addEventListener('click', () => {
+            btn4.removeEventListener('click', btn4_click);
+        });
+
+        // Események gyűrűzése
+        const eventHandler = (title) => {
+            console.log(title);
+        };
+
+        for (let box of document.getElementsByClassName('box-1')) {
+            box.addEventListener('click', () => eventHandler(box.title), true);
+        } // Box 1, Box 2, Box 3, Box 4
+
+        for (let box of document.getElementsByClassName('box-2')) {
+            box.addEventListener('click', () => eventHandler(box.title), false);
+        } // Box 4, Box 3, Box 2, Box 1
+
+        // Eseménykezelő paraméterezése
+        let coords = document.getElementById('coords');
+        let canvas = document.getElementById('canvas');
+        canvas.addEventListener('mousemove', (e) => {
+            coords.innerText = `X: ${e.offsetX}, Y: ${e.offsetY}`;
+            console.log(e);
+        });
+
+        // Időzített eseménykezelő
+        document.getElementById('btn6').addEventListener('click', () => {
+
+        });
+
+        let intervalId;
+        document.getElementById('btn6').addEventListener('click', () => {
+            console.log('Start');
+            intervalId = setInterval(() => {
+                console.log('Tick');
+            }, 1000);
+
+            setTimeout(() => {
+                console.log('Timeout');
+                clearInterval(intervalId);
+            }, 5000);
+
+        });
+    };
+</script>
+</body>
+</html>

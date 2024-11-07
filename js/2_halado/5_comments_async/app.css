@@ -1,0 +1,15 @@
+#comments{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#comments > div{
+    background-color: rgb(233, 236, 239);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#newCommentForm{
+    margin-top: 20px;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery AJAX</title>
+    <style>
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td{
+            padding: 5px;
+        }
+        table{
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<button id="load">Adatok betöltése</button>
+
+<table id="users">
+    <tr>
+        <th>Név</th>
+        <th>Életkor</th>
+        <th>Város</th>
+    </tr>
+    <tr>
+        <td colspan="3">Nincs adat</td>
+    </tr>
+</table>
+
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+<script>
+    function loadData_1(){
+        $.ajax({
+            url: '4_jquery_ajax.php',
+            type: 'GET',
+            success: updateTable
+        });
+    }
+
+    function loadData_2(){
+        let response = $.get({
+            url: '4_jquery_ajax.php',
+        });
+
+        response.then((data) => {
+            updateTable(data);
+        })
+
+        response.catch((error) => {
+            console.log('Hiba történt');
+            console.log(`${error.status} - ${error.statusText}`)
+        })
+    }
+
+    async function loadData_3(){
+        try {
+            let data = await $.get({
+                url: '4_jquery_ajax.php',
+            });
+
+            updateTable(data);
+        } catch (error) {
+            console.log('Hiba történt');
+            console.log(`${error.status} - ${error.statusText}`)
+        }
+    }
+
+    function updateTable(users){
+        let table = $('#users');
+        table.find('tr:not(:first)').remove();
+        for (let user of users) {
+            let row = $('<tr>');
+            let name = $('<td>').text(user.name);
+            let age = $('<td>').text(user.age);
+            let city = $('<td>').text(user.city);
+            row.append(name, age, city);
+            table.append(row);
+        }
+    }
+
+    $(function () {
+        $('#load').click(function () {
+            loadData_3();
+            testJson();
+        });
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,3 +1,4 @@
+CREATE SCHEMA IF NOT EXISTS info2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 USE info2;
 
 DROP TABLE IF EXISTS megrendeles_tetelek;

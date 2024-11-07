@@ -1,4 +1,7 @@
+create schema if not exists info2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 use info2;
+
+drop table if exists users;
 
 create table users (
 	id INT,

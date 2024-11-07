@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Validate</title>
+    <style>
+        .form-group {
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Űrlap</h1>
+<form id="form">
+    <div class="form-group">
+        <label for="name">Név:</label>
+        <input type="text" id="name" name="name">
+    </div>
+
+    <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email">
+    </div>
+
+    <div class="form-group">
+        <label for="birthday">Születési dátum:</label>
+        <input type="date" id="birthday" name="birthday">
+    </div>
+
+    <div class="form-group">
+        <label for="privacy">Adatvédelmi nyilatkozat elfogadása:</label>
+        <input type="checkbox" id="privacy" name="privacy">
+    </div>
+
+    <button type="submit">Küldés</button>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.21.0/dist/jquery.validate.js"></script>
+
+<script>
+    $.validator.addMethod("isAdult", function(value, element) {
+        value = new Date(value);
+        let today = new Date();
+        return (today.getFullYear() - value.getFullYear()) > 18;
+    }, "Legalább 18 évesnek kell lenned!");
+
+    $(function () {
+        $('#form').validate({
+            // Szabályok megadása
+            rules: {
+                name: "required",
+                email: {required: true, email: true},
+                birthday: {required: true, date: true, isAdult: true},
+                privacy: "required"
+            },
+            // Hibaüzenetek megadása
+            messages: {
+                name: "Add meg a neved!",
+                email: "Adj meg egy érvényes e-mail címet!",
+                birthday: {
+                    required: "Add meg a születési dátumod!"
+                },
+                privacy: "Fogadd el a nyilatkozatot!"
+            },
+            // Űrlap elküldésekor futó függvény
+            submitHandler: function (form) {
+                alert('Az űrlap elküldve!');
+            }
+        });
+    });
+</script>
+</body>
+</html>

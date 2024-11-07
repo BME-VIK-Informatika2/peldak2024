@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+</head>
+<body>
+
+<h1>Számláló</h1>
+<div>
+    <button id="btnSub">-</button>
+    <button id="btnAdd">+</button>
+    <span id="cntr">0</span>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous">
+</script>
+
+<script>
+    // document ready esemény
+    $(document).ready(function(){
+        console.log('Hello, jQuery!');
+    });
+
+    // rövidített verzió
+    $(function(){
+        $('#btnAdd').click(function(){
+            $('#cntr').text(parseInt($('#cntr').text()) + 1);
+            $('#cntr').css('color', 'green');
+        });
+
+        $('#btnSub').click(function(){
+            $('#cntr').text(parseInt($('#cntr').text()) - 1);
+            $('#cntr').css('color', 'red');
+        });
+    });
+</script>
+</body>
+</html>
